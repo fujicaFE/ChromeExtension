@@ -1,0 +1,1 @@
+console.log(`output->123`, 123)

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "FujicaTools",
+  "description": "this is my Chrome ext",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.ts"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/content/content.ts",
+        "src/contentPage/index.ts"
+      ],
+      "matches": [
+        "https://gatewayservicev2.fujica.com.cn/*"
+      ],
+      "all_frames": true,
+      "run_at": "document_end",
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/contentPage/index.html", "src/assets/*", "src/js/*"],
+      "matches": ["https://gatewayservicev2.fujica.com.cn/*"],
+      "use_dynamic_url": true
+    }
+  ]
+}
